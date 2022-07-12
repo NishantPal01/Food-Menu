@@ -1,0 +1,24 @@
+{% extends 'food/base.html' %}
+{% block body %}
+{% for item in items %}
+
+
+    <div class="row" style="padding: 30px;" >
+        <div class="col-md-3 offset-md-2" style="padding-top: 20px;">
+            <img class="card" src="{{item.item_image}}"  height="200px" width="200px"/>
+        </div>
+        <div class="col-md-4" style="padding-top: 20px;">
+            <h3>{{ item.item_name }}</h3>
+            <h4>{{ item.item_desc }}</h4>
+            <h5>Rs. {{ item.item_price }}</h5>
+            <h6>Creator: {{ item.user_name }}</h6>
+        </div>
+        <div class="col-md-2" style="padding-top: 20px;">
+            <a href="{% url 'details' item.id %}" class="btn btn-success" > Details </a>
+        </div>
+
+    </div>
+    
+    
+{% endfor %}
+{% endblock %}
